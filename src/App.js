@@ -1,16 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.less';
-import { Button } from 'antd';
-// import Button from 'antd/es/button'
-import {DownloadOutlined} from '@ant-design/icons'
-
+import {Layout} from 'antd'
+import ROUTERS from './routers/index'
+import HeaderMenu from './Components/HeaderMenu'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-        <Button type="default" loading={true} type="primary">Primary Button</Button>
-        <Button icon={<DownloadOutlined/>}>Button</Button>
-    </div>
+   <Router>
+     <Layout>
+        <HeaderMenu/>
+        <Switch>
+          {
+            ROUTERS.map((v)=>{
+              return  <Route exact={v.exact} path={v.path}>
+                        <v.component />
+                      </Route>
+            })
+          }
+        </Switch>
+      </Layout>
+   </Router>
   );
 }
 
