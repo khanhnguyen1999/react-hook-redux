@@ -1,0 +1,30 @@
+Action
+Reducer
+Store
+Selector || Getter
+
+B1:Tạo Reducer
+    ->Là một Pure Function
+
+B2:Tạo Action (dispatch) -> Dùng ở trong Component
+    Action là một Plain Object
+    ->Thường khai báo thành một Function return về Plain Object
+    ->Function này cũng phải là một Pure Function
+B2:Tạo Store -> Phải có Reducer
+B3:Tạo Provider bao bọc App của mình
+
+    => Sau này khi học tới tương tác API -> Cần dùng tới MiddleWare của Redux
+- Cách truyền thống.Kết nối dùng connect của react-redux
+    -> Dùng được cả Function Component và Class Component
+    Kết nối Component
+    B1:Import connect từ react-Redux
+    B2:Bọc Component của mình vào lời gọi hàm connect()(Component)
+
+    User dispatch 1 action -> Chuyển tới Reducer -> Thay đổi statetate
+        =>Phân phối lại tới những Component mà connect tới 
+
+- Cách dùng Hook -> Chỉ có Function Component mới được dùng React Hook
+
+React Router 
+Redux -> Tách ra thành nhiều Reducer
+Làm quen với thư viện Ant Design ( Bootstrap của HTML , CSS, JS...)
