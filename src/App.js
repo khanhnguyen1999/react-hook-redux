@@ -6,8 +6,7 @@ import HeaderMenu from './Components/HeaderMenu'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 function App() {
   return (
@@ -17,9 +16,7 @@ function App() {
         <Switch>
           {
             ROUTERS.map((v)=>{
-              return  <Route exact={v.exact} path={v.path}>
-                        <v.component />
-                      </Route>
+              return  <Route key={v} exact={v.exact} path={v.path} component={v.component}/>
             })
           }
         </Switch>

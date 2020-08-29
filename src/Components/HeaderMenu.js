@@ -1,13 +1,17 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Menu } from 'antd';
+import {useSelector} from 'react-redux'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  useLocation,
   Link
 } from "react-router-dom";
 
 function HeaderMenu() {
+  const location = useLocation();
+  const token = useSelector(state=>state.User.token)
+  useEffect(()=>{
+    
+  },[location])
   return (
         <Menu  mode="horizontal">
           <Menu.Item>
@@ -18,6 +22,12 @@ function HeaderMenu() {
           </Menu.Item>
           <Menu.Item>
             <Link to="/DashBoard">DashBoard</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/Login">Login</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/Register">Register</Link>
           </Menu.Item>
         </Menu>
   );

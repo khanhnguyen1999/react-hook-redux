@@ -1,24 +1,17 @@
-import React from 'react';
-import { Button } from 'antd';
-import { DatePicker, Space } from 'antd';
+import React,{useEffect} from 'react';
+import {  Space } from 'antd';
 // import Button from 'antd/es/button'
 import { Table, Tag } from 'antd';
-import {DownloadOutlined} from '@ant-design/icons'
-import locale from 'antd/es/date-picker/locale/vi_VN';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
-const { RangePicker } = DatePicker;
+import {useSelector,useDispatch} from 'react-redux'
+import {useHistory} from 'react-router-dom'
+import {actLogout} from '../store/user/actions'
+import {Button} from 'antd'
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a>{text}</a>,
+    render: text => <a href="/#">{text}</a>,
   },
   {
     title: 'Age',
@@ -55,8 +48,8 @@ const columns = [
     key: 'action',
     render: (text, record) => (
       <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
+        <a href="/#">Invite {record.name}</a>
+        <a href="/#">Delete</a>
       </Space>
     ),
   },
@@ -86,13 +79,26 @@ const data = [
   },
 ];
 
-
-function DashBoard() {
+export default function DashBoard() {
+  const history = useHistory();
+  const state = useSelector(state=>state)
+  const token = useSelector(state=>state.User.token)
+  const dispatch = useDispatch();
+  useEffect(()=>{
+      if(!token) history.push("/Login")
+      else{
+          console.log("chưa đăng nhập")
+      }
+  },[token,history])
+  var handleLogout = ()=>{
+    console.log("dispatch: ",dispatch,actLogout)
+    dispatch(actLogout());
+    console.log("state: ",state)
+  }
   return (
-    <div className="DashBoard">
+      <div className="container">
         <Table columns={columns} dataSource={data}/>
-    </div>
+        <Button onClick={handleLogout} type="primary">Logout</Button>
+      </div>
   );
 }
-
-export default DashBoard;
