@@ -2,7 +2,9 @@ import DashBoard from '../pages/DashBoard';
 import Menu from '../pages/Menu';
 import HomePage from '../pages/HomePage';
 import Login from '../pages/Login';
+import React from 'react'
 import Register from '../pages/Register'
+import BlogDetail from '../pages/BlogDetail'
 const ROUTERS = [
     {
         path: '/',
@@ -15,9 +17,14 @@ const ROUTERS = [
         component: Menu
     },
     {
+        path: '/Blog/:id',
+        exact: true,
+        component: ()=> <BlogDetail/>
+    },
+    {
         path: '/DashBoard',
         exact: true,
-        component: DashBoard
+        component: ()=> <DashBoard/>
     },
     {
         path: '/Register',

@@ -9,11 +9,12 @@ const initialState = [
             username: '123',
             password: '123',
             token: "null" 
-            },{
+            },
+            {
                 username: 'khanh',
                 password: '123',
                 token: "null" 
-                }   
+            }   
 ]
 
 const findUser = (state,v)=>{

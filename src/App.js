@@ -11,8 +11,8 @@ import {
 function App() {
   return (
    <Router>
+      <HeaderMenu/>
      <Layout>
-        <HeaderMenu/>
         <Switch>
           {
             ROUTERS.map((v)=>{

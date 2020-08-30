@@ -28,3 +28,27 @@ B3:Tạo Provider bao bọc App của mình
 React Router 
 Redux -> Tách ra thành nhiều Reducer
 Làm quen với thư viện Ant Design ( Bootstrap của HTML , CSS, JS...)
+
+
+-----------------------
+
+
+React Router 
+    - Tạo Router , CCogfig Router
+    - Tạo Router lồng nhau ( Nesting Router )
+    - Tạo Router truyền biến trên url,lấy params ra sử dụng bằng Hook (useParams)
+    - Xác thực Router (Chặn Router private)
+        Higher Order Component
+
+
+Redux 
+    - Cấu hình Redux,Tạo Reducer.Tách nhỏ Reducer
+    - Tạo Action
+    - Kết nối Reducer với Component 
+        Cách 1: Class dùng hàm connect - > mapStateToProps,mapDispatchToPropspatchToProps
+        Cách 2: React Hook -> useSelector, ....
+    (Context API,Reducer-> Hook)
+    Apollo -> Graphql
+Ant Design / Material UI / Core ...
+    - Cấu hình - Config Themes
+    - Custom lại css bằng styled Component
